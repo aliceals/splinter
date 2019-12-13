@@ -4,6 +4,8 @@ Keeping track of group expenditures can be tough and awkward.
 
 This is an app that helps to track spending and divide and settle the bills.
 
+https://splinterapp.herokuapp.com
+
 ## Final Group Project - Presented at Graduation on 13 December 2019 
 
 Product Owner: Bas Suckling
@@ -21,169 +23,14 @@ The tech that this project will use is the following:
 * [Bootstrap](https://getbootstrap.com/)
 * [JWT Auth (Local)](https://jwt.io/)
 
+## Context
 
-## User Stories
+This is a forked repository of our final group project at Dev Academy. This app was developed in a week, and we are very proud of what we achieved. 
 
-### MVP
+The complexity lies in managing the database and redux states for a significant amount of information which can be updated in multiple locations within the app or removed, including users, groups, group members, transactions and transaction details.
 
-As a user:
-  * I want to register for the App under my name, and email and signin
-  * I want to be able to create a group
-  * I want to be able to add people to a group and remove if I am admin of the group
-  * I want to be able to see what groups I am part of
-  * I want to be able to add a transaction to the group with the amount and other members involved
-  * I want to see a list of transactions for my groups
-  
- 
+A user can create groups, add group members, and add transactions, including ones which don't include all group members of the active group. 
 
-### Stretch
-  * I want to be able to see the balance owed for everyone
-  * I want to be able to see the past groups
-  * I want to send an email to people in a group when the debt has been settled
-
-  ---
-
-## Views (Client Side)
-  | name | purpose |
-  | --- | --- |
-  | Login | View for user to enter their login credentials |
-  | Register | View for user to sign up for the App |
-  | LandingPage | Filler content |
-  | DashboardNav | Navbar on the side  |
-  | CreateGroup | View to create a new group |
-  | CreateTransaction | View to add a new transaction to a group |
-  | AllTransactions | View to display all transactions for current group |
-  | SettledGroups | View to display all past groups and transactions |
-  | SettleTransactions | View to settle outstanding transactions |
-  
+When it comes to settle group debt, the account user gets an email outlining the total amount spent, and a suggested repayment schedule.
 
 
-## Reducers (Client Side)
-
-  | name | purpose |
-  | --- | --- |
-  | auth | Store information regarding user logins, auth status and auth errors |
-  | transactions | store the list of transactions for each group |
-  | groups | store the list of groups the user is apart of |
-  | users | store a list of users who can be part of the group |
-
- ## Actions
-
- ### transactions
-
- | type | data | purpose |
- | --- | --- | --- |
- | RECEIVE_TRANSACTIONS| transactions | retreive meetings from the db and store in redux |
- | ADD_TRANSACTION | transactions | Add a single transaction |
- | DELETE_TRANSACTION | transactions | Delete a transaction |
- | UPDATE_TRANSACTION | transactions | Update a transaction |
-
-
- ### users
- | type | data | purpose |
- | --- | --- | --- |
- | RECEIVE_USERS | users | retreive the users from the server |
- | GET_USER | users | retreive a specific user from the server |
- | ADD_USER | users | add a user to the group |
- | DELETE_USER | users | delete a user |
- | UPDATE_USER | users | update a user |
-
- ### groups
-  | type | data | purpose |
-| --- | --- | --- |
-| ADD_GROUP | groups | add a new group |
-| GET_GROUPS | groups | get a list of groups |
-| DELETE_GROUP | groups | delete a single group |
-| EDIT_GROUP | groups | edit a single group |
-| ADD_MEMBER | groups | add member to group |
-| DELETE_MEMBER | groups | delete member from group |
-| UPDATE_MEMBER | groups | update member from group |
-
-
-## API (Client - Server)
-
-| Method | Endpoint | Protected | Usage | Response |
-| --- | --- | --- | --- | --- |
-| Post | /api/auth/login | Yes | Log In a User | The Users JWT Token |
-| Post | /api/auth/register | Yes | Register a User | The Users JWT Token |
-| Get | /api/transactions | Yes | Get a transaction list for chosen group | An Array of transactions |
-| Post | /api/transactions | Yes | Add a new transaction for chosen group | id of new transaction |
-| Put | /api/transactions | Yes | Update a transaction for chosen group | id of updated transaction |
-| Delete | /api/transactions | Yes | Delete a transaction for chosen group | id of deleted transaction |
-| Get | /api/groups | Yes | Get a group list | An Array of groups |
-| Post | /api/groups | Yes | Add a new group  | id of new group |
-| Put | /api/groups | Yes | Update a group  | id of updated group |
-| Delete | /api/groups | Yes | Delete a group  | id of deleted group |
-| Get | /api/users | Yes | Get a user list | An Array of users |
-| Post | /api/users | Yes | Add a new user  | id of new user |
-| Put | /api/users | Yes | Update a user  | id of updated user |
-| Delete | /api/users | Yes | Delete a user  | id of deleted user |
-
-
-
-| Get | /api/users | Yes | Get a Users Meeting Histroy | An Array of Meetings |
-| Get | /api/groups | Yes | Get a Users Meeting Histroy | An Array of Meetings |
-
-
-
-## DB (Server Side)
-  There should be three tables for MVP
-
-### Users
-  | Column Name | Data Type |
-  | --- | --- |
-  | user_id | Integer |
-  | email| String |
-  | first_name | String |
-  | last_name | String |
-  | hash | text |
-
-### Groups
-  | Column Name | Data Type |
-  | --- | --- |
-  | group_id | Integer |
-  | group_name | String |
-  | group_description | String |
-  | user_id | Integer |
-  | settled | Boolean |
-
-  ### GroupMembers
-  | Column Name | Data Type |
-  | --- | --- |
-  | groupMember_id | Integer |
-  | member_name | String |
-  | group_id | Integer |
-
-   ### Transactions
-  | Column Name | Data Type |
-  | --- | --- |
-  | transaction_id | Integer |
-  | group_id | Integer |
-  | groupMember_id | Integer |
-  | transaction_total | Integer |
-  | transaction_name | String |
-  | date | BigInt |
-
-
-
-nb: cost recorded in cents
-
- ### TransactionDetails (Join Table One2M)
-  | Column Name | Data Type |
-  | --- | --- |
-  | transactionDetails_id | Integer |
-  | transaction_id | Integer |
-  | groupMember_id | Integer |
-  | total_contribution | Integer |
-
-
-### UserGroup (Join Table M2M)
-
-  Many Users attend Many Meetings
-
- | Column Name | Data Type |
- | --- | --- |
- | user_id | Integer |
- | group_id | Integer |
-
- ---
