@@ -16,6 +16,7 @@ Dev Team: Tosca Wilson, Alice Alsford, Robert Cummins
 
 This project uses the following tech stack:
 
+* [Node.js](https://nodejs.org/en/)
 * [React](https://reactjs.org/docs/getting-started.html)
 * [Redux](https://redux.js.org/)
 * [Express](https://expressjs.com/en/api.html)
