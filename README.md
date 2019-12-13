@@ -27,9 +27,7 @@ The tech that this project will use is the following:
 
 This is a forked repository of our final group project at Dev Academy. This app was developed in a week, and we are very proud of what we achieved. 
 
-The complexity lies in managing the database and redux states for a significant amount of information which can be updated in multiple locations within the app or removed, including users, groups, group members, transactions and transaction details.
-
-A user can create groups, add group members, and add transactions, including ones which don't include all group members of the active group. 
+The complexity lies in managing the database and redux states for a significant amount of information which can be updated in multiple locations within the app. A user can create groups, add group members, and add transactions, including ones which don't include all group members of the active group. 
 
 When it comes to settle group debt, the account user gets an email outlining the total amount spent, and a suggested repayment schedule.
 
