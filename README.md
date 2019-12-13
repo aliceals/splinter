@@ -14,7 +14,7 @@ Dev Team: Tosca Wilson, Alice Alsford, Robert Cummins
 
 ## The Tech
 
-The tech that this project will use is the following: 
+This project uses the following tech stack:
 
 * [React](https://reactjs.org/docs/getting-started.html)
 * [Redux](https://redux.js.org/)
