@@ -32,4 +32,11 @@ The complexity lies in managing the database and redux states for a significant 
 
 When it comes to settle group debt, the account user gets an email outlining the total amount spent, and a suggested repayment schedule.
 
+## Features
+ 
+- Log in and register 
+- The ability to split a transaction with selected people from the group
+- Once the group has been settled an email gets sent to the user with the suggested payment plan 
+- Robust user friendly and mobile friendly app
+
 
