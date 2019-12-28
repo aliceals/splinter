@@ -48,27 +48,27 @@ class SignUp extends React.Component {
           {auth.errorMessage && <><h1><span className="badge badge-danger badge-lg">{auth.errorMessage}</span></h1><br></br></>}
 
           <div className="justify-content-center">
-            <input required className="form-control action-first" placeholder="First Name" type="text" name="first_name" onChange={this.handleChange} />
+            <input required className="form-control first" placeholder="First Name" type="text" name="first_name" onChange={this.handleChange} />
           </div>
 
           <div className="justify-content-center">
-            <input required className="form-control action-last" placeholder="Last Name" type="text" name="last_name" onChange={this.handleChange} />
+            <input required className="form-control last" placeholder="Last Name" type="text" name="last_name" onChange={this.handleChange} />
           </div>
 
           <div className="justify-content-center">
-            <input required className="form-control action-email" placeholder="Email" type="text" name="email" onChange={this.handleChange} />
+            <input required className="form-control email" placeholder="Email" type="text" name="email" onChange={this.handleChange} />
           </div>
 
           <div className="justify-content-center">
-            <input required className="form-control action-password1" placeholder="Password" type="password" name="password" onChange={this.handleChange} />
+            <input required className="form-control password1" placeholder="Password" type="password" name="password" onChange={this.handleChange} />
           </div>
 
           <div className="justify-content-center">
-            <input required className="form-control action-password2" placeholder="Confirm Password" type="password" name="confirm_password" onChange={this.handleChange} />
+            <input required className="form-control password2" placeholder="Confirm Password" type="password" name="confirm_password" onChange={this.handleChange} />
           </div>
 
           <div className="registerButton">
-            <button className="btn custom-button action-submit" value="Register" type="submit">Sign up!</button>
+            <button className="btn custom-button submit" value="Register" type="submit">Sign up!</button>
           </div>
 
         </form>

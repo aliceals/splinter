@@ -4,39 +4,40 @@ describe('My First Test', function () {
     })
 })
 
-describe('User can sign in', function () {
-    it('Visits the page', function () {
-        cy.visit('https://splinterapp.herokuapp.com')
+it('A user can visit the page', function () {
+    cy.visit('https://splinterapp.herokuapp.com')
 
-        cy.contains('Sign')
-    })
-    it('Clicks the sign in link', function () {
-        cy.visit('http://localhost:3000/#/')
+    cy.contains('Sign')
+})
 
-        cy.contains('Sign Up').click()
+it('A user can register', function () {
+    cy.visit('http://localhost:3000/')
 
-        cy.url().should('include', '/signup')
+    cy.contains('Sign Up').click()
 
-        cy.get('.action-first')
-            .type('fake')
-            .should('have.value', 'fake')
+    cy.get('.first')
+        .type('fake')
+        .should('have.value', 'fake')
 
-        cy.get('.action-last')
-            .type('last')
-            .should('have.value', 'last')
+    cy.get('.last')
+        .type('last')
+        .should('have.value', 'last')
 
-        cy.get('.action-email')
-            .type('fake2@email.com')
-            .should('have.value', 'fake2@email.com')
+    cy.get('.email')
+        .type('fake225@email.com')
+        .should('have.value', 'fake225@email.com')
 
-        cy.get('.action-password1')
-            .type('banana')
-            .should('have.value', 'banana')
+    cy.get('.password1')
+        .type('banana')
+        .should('have.value', 'banana')
 
-        cy.get('.action-password2')
-            .type('banana')
-            .should('have.value', 'banana')
+    cy.get('.password2')
+        .type('banana')
+        .should('have.value', 'banana')
 
-        cy.contains('Sign up!').click()
-    })
+    cy.contains('Sign up!').click()
+
+    cy.contains('Logout')
+    cy.contains('Create a new group')
+
 })
