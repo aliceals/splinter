@@ -38,41 +38,41 @@ class SignUp extends React.Component {
     const { auth } = this.props
     return (
 
-        <div className="registerContainer animated fadeIn col-12">
+      <div className="registerContainer animated fadeIn col-12">
 
-          <form className="form" onSubmit={this.submit}>
+        <form className="form" onSubmit={this.submit}>
 
-            <h1 className='formTitle'>Sign up to Splinter</h1>
-            <h5 className='signUpMessage'>Already signed up? <Link to='/login'>Log In</Link></h5>
+          <h1 className='formTitle'>Sign up to Splinter</h1>
+          <h5 className='signUpMessage'>Already signed up? <Link to='/login'>Log In</Link></h5>
 
-            {auth.errorMessage && <><h1><span className="badge badge-danger badge-lg">{auth.errorMessage}</span></h1><br></br></>}
+          {auth.errorMessage && <><h1><span className="badge badge-danger badge-lg">{auth.errorMessage}</span></h1><br></br></>}
 
-            <div className="justify-content-center">
-              <input required className="form-control" placeholder="First Name" type="text" name="first_name" onChange={this.handleChange} />
-            </div>
+          <div className="justify-content-center">
+            <input required className="form-control" placeholder="First Name" type="text" name="first_name" onChange={this.handleChange} />
+          </div>
 
-            <div className="justify-content-center">
-              <input required className="form-control" placeholder="Last Name" type="text" name="last_name" onChange={this.handleChange} />
-            </div>
+          <div className="justify-content-center">
+            <input required className="form-control" placeholder="Last Name" type="text" name="last_name" onChange={this.handleChange} />
+          </div>
 
-            <div className="justify-content-center">
-              <input required className="form-control" placeholder="Email" type="text" name="email" onChange={this.handleChange} />
-            </div>
+          <div className="justify-content-center">
+            <input required className="form-control action-email" placeholder="Email" type="text" name="email" onChange={this.handleChange} />
+          </div>
 
-            <div className="justify-content-center">
-              <input required className="form-control" placeholder="Password" type="password" name="password" onChange={this.handleChange} />
-            </div>
+          <div className="justify-content-center">
+            <input required className="form-control" placeholder="Password" type="password" name="password" onChange={this.handleChange} />
+          </div>
 
-            <div className="justify-content-center">
-              <input required className="form-control" placeholder="Confirm Password" type="password" name="confirm_password" onChange={this.handleChange} />
-            </div>
+          <div className="justify-content-center">
+            <input required className="form-control" placeholder="Confirm Password" type="password" name="confirm_password" onChange={this.handleChange} />
+          </div>
 
-            <div className="registerButton">
-              <button className="btn custom-button" value="Register" type="submit">Sign up</button>
-            </div>
+          <div className="registerButton">
+            <button className="btn custom-button" value="Register" type="submit">Sign up</button>
+          </div>
 
-          </form>
-        </div>
+        </form>
+      </div>
     )
   }
 }
