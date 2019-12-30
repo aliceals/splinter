@@ -69,16 +69,16 @@ class CreateGroup extends React.Component {
       <>
         <div className="form-content animated fadeIn">
           <form className="groupForm">
-          <h2 className="groupFormTitle">Create a new group</h2>
+            <h2 className="groupFormTitle">Create a new group</h2>
             <label>Group Name</label>
-            <input className='form-control' required type='text' name='group_name' placeholder='eg. Kates Birthday' onChange={this.updateDetails}></input>
+            <input className='form-control groupname' required type='text' name='group_name' placeholder='eg. Kates Birthday' onChange={this.updateDetails}></input>
 
             <label>Description</label>
-            <input className='form-control' required type='text' name='group_description' placeholder='eg. Great Mates Drinking Crates To Celebrate Our Old Mates Birthdate. Mate.' onChange={this.updateDetails}></input>
+            <input className='form-control groupdescription' required type='text' name='group_description' placeholder='eg. Great Mates Drinking Crates To Celebrate Our Old Mates Birthdate. Mate.' onChange={this.updateDetails}></input>
 
 
             <label>Add Group Member</label>
-            <input className='form-control' required type='text' name='new_member_name' placeholder='eg. Joe' onChange={this.updateMembers} value={this.state.new_member_name}></input>
+            <input className='form-control groupmember' required type='text' name='new_member_name' placeholder='eg. Joe' onChange={this.updateMembers} value={this.state.new_member_name}></input>
             <div>
               <button className="addMemberButton btn custom-button btn-sm" onClick={this.addMember}>Add member</button>
             </div>

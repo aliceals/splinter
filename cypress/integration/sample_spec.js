@@ -54,7 +54,8 @@ it('A user can register', function () {
 
 })
 
-it('A user can login', function () {
+
+function logUserIn() {
     cy.visit('http://localhost:3000/')
 
     cy.contains('Log In').click()
@@ -71,5 +72,32 @@ it('A user can login', function () {
 
     cy.contains('Logout')
     cy.contains('Create a new group')
+}
 
+it('A user can create a new group', function () {
+    logUserIn()
+
+    cy.get('.groupname')
+        .type('fake225@email.com')
+        .should('have.value', 'fake225@email.com')
+
+    cy.get('.groupdescription')
+        .type('banana')
+        .should('have.value', 'banana')
+
+    cy.get('.groupmember')
+        .type('banana')
+        .should('have.value', 'banana')
+
+    cy.contains('Add member').click()
+
+    cy.get('.groupmember')
+        .type('pickle')
+        .should('have.value', 'pickle')
+
+    cy.contains('Add member').click()
+
+    cy.contains('Create Group').click()
+
+    cy.contains('Add New Transaction')
 })
