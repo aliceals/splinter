@@ -53,7 +53,7 @@ class Login extends React.Component {
               <label htmlFor='email'>
                 <input
                   required
-                  className='form-control'
+                  className='form-control useremail'
                   placeholder='Email'
                   type='text'
                   name='email'
@@ -65,7 +65,7 @@ class Login extends React.Component {
               <label htmlFor='password'>
                 <input
                   required
-                  className='form-control'
+                  className='form-control password'
                   placeholder='Password'
                   type='password'
                   name='password'
@@ -74,7 +74,7 @@ class Login extends React.Component {
               </label>
             </div>
             <div className="loginButton">
-              <button className='btn custom-button' value='Login' type='submit'>Log In</button>
+              <button className='btn custom-button' value='Login' type='submit'>Log In!</button>
             </div>
           </form>
         </div>
