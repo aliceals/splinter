@@ -160,9 +160,9 @@ class AddTransaction extends React.Component {
                     </select>
                   </div>
                   <div className="col-lg-2 col-sm-12 transactionAmountWrapper">
-                    <label className="inputLabel amount">Amount $</label>
+                    <label className="inputLabel ">Amount $</label>
                     <span className='transactionAmountInput'></span>
-                    <input value={this.state.transaction.transactionTotal} className='form-control' type='number' name='transactionTotal' placeholder='0.00' onChange={this.updateDetails} ></input>
+                    <input value={this.state.transaction.transactionTotal} className='form-control amount' type='number' name='transactionTotal' placeholder='0.00' onChange={this.updateDetails} ></input>
                   </div>
                 </div>
                 <div>

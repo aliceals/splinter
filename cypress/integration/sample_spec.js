@@ -114,12 +114,12 @@ it('A user can create a transaction from already created group', function () {
         .should('have.value', 'test one')
 
     cy.get('.payedby')
-        .type('banana')
-        .should('have.value', 'banana')
+        .select('banana')
+        .should('have.value', '42')
 
     cy.get('.amount')
         .type('200')
         .should('have.value', '200')
 
-
+    cy.contains('Add Transaction').click()
 })
