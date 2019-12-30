@@ -17,7 +17,7 @@ class AddTransaction extends React.Component {
     }
   }
 
-  UNSAFE_componentWillReceiveProps(){
+  UNSAFE_componentWillReceiveProps() {
     this.setState({
       transaction: {},
       group_members: this.props.groupMembers.filter(({ group_id }) => group_id == this.props.activeGroup),
@@ -31,9 +31,9 @@ class AddTransaction extends React.Component {
   }
 
   handleCheck = () => {
-    
-    if(this.state.selectedPayer.length !== 0){
-      if(this.state.checked){
+
+    if (this.state.selectedPayer.length !== 0) {
+      if (this.state.checked) {
         this.setState({
           checked: false,
           group_members: this.state.selectedPayer,
@@ -46,7 +46,7 @@ class AddTransaction extends React.Component {
           errorPayer: false
         })
       }
-    } else{
+    } else {
       this.setState({
         errorPayer: true
       })
@@ -57,7 +57,7 @@ class AddTransaction extends React.Component {
     this.setState({
       group_members: this.props.groupMembers.filter(({ group_id }) => group_id == this.props.activeGroup)
     })
-    if(this.state.checked == false){
+    if (this.state.checked == false) {
       this.handleCheck()
     }
     let members = this.props.groupMembers.filter(({ group_id }) => group_id == this.props.activeGroup)
@@ -93,28 +93,29 @@ class AddTransaction extends React.Component {
 
   submit = (e) => {
     e.preventDefault()
-    if(this.state.group_members.length <= 1){
+    if (this.state.group_members.length <= 1) {
       this.setState({
         errorPeopleAmount: true
       })
     } else {
-    if (this.state.transaction.transactionName == undefined || this.state.transaction.transactionName == "" || !this.state.transaction.groupMemberId) {
-      this.setState({
-        error: true
-      })
-    } else {
-      this.props.dispatch(newTransaction(this.state))
-      this.setState({
-        error: false,
-        errorPeopleAmount: false,
-        checked: true,
-        transaction: {transactionName: "", transactionTotal: 0.00, groupMemberId: 'Select Member'}
-      })
-    }}
+      if (this.state.transaction.transactionName == undefined || this.state.transaction.transactionName == "" || !this.state.transaction.groupMemberId) {
+        this.setState({
+          error: true
+        })
+      } else {
+        this.props.dispatch(newTransaction(this.state))
+        this.setState({
+          error: false,
+          errorPeopleAmount: false,
+          checked: true,
+          transaction: { transactionName: "", transactionTotal: 0.00, groupMemberId: 'Select Member' }
+        })
+      }
+    }
   }
 
   deleteMember = (e) => {
-    if(this.state.selectedPayer[0].member_name == e.target.name){
+    if (this.state.selectedPayer[0].member_name == e.target.name) {
       this.handleCheck()
       return this.setState({
         group_members: this.props.groupMembers.filter(({ group_id }) => group_id == this.props.activeGroup)
@@ -132,9 +133,9 @@ class AddTransaction extends React.Component {
 
   render() {
     console.log(this.state)
-   let members = this.props.groupMembers.filter(({ group_id }) => group_id == this.props.activeGroup) 
-   let splitMembers = members.filter(member => !this.state.group_members.includes(member))
-   console.log(this.state)
+    let members = this.props.groupMembers.filter(({ group_id }) => group_id == this.props.activeGroup)
+    let splitMembers = members.filter(member => !this.state.group_members.includes(member))
+    console.log(this.state)
     return (
       <>
         <div className="form-content">
@@ -146,11 +147,11 @@ class AddTransaction extends React.Component {
                   <div className="col-lg-4 col-sm-12">
 
                     <label className="inputLabel" >Description</label>
-                    <input value={this.state.transaction.transactionName}className='form-control' type='text' name='transactionName' placeholder="eg. Breakfast at Tiffany's" onChange={this.updateDetails}></input>
+                    <input value={this.state.transaction.transactionName} className='form-control paymentDesc' type='text' name='transactionName' placeholder="eg. Breakfast at Tiffany's" onChange={this.updateDetails}></input>
                   </div>
                   <div className="col-lg-3 col-sm-12">
                     <label className="inputLabel">Paid by</label>
-                    <select value={this.state.transaction.groupMemberId} className='form-control' name='groupMemberId' onChange={this.updateDetails} onClick={this.handlePayerChange}>
+                    <select value={this.state.transaction.groupMemberId} className='form-control payedby' name='groupMemberId' onChange={this.updateDetails} onClick={this.handlePayerChange}>
                       <option>Select Member</option>
                       {members.map((member, i) => {
 
@@ -159,13 +160,13 @@ class AddTransaction extends React.Component {
                     </select>
                   </div>
                   <div className="col-lg-2 col-sm-12 transactionAmountWrapper">
-                    <label className="inputLabel">Amount $</label>
+                    <label className="inputLabel amount">Amount $</label>
                     <span className='transactionAmountInput'></span>
-                    <input value={this.state.transaction.transactionTotal}  className='form-control' type='number' name='transactionTotal' placeholder='0.00' onChange={this.updateDetails} ></input>
+                    <input value={this.state.transaction.transactionTotal} className='form-control' type='number' name='transactionTotal' placeholder='0.00' onChange={this.updateDetails} ></input>
                   </div>
                 </div>
                 <div>
-                {this.state.errorPayer == true && <p style={{ color: "red" }}>Please select a payer</p>}
+                  {this.state.errorPayer == true && <p style={{ color: "red" }}>Please select a payer</p>}
                   <label className="inputLabel">Split by all members?</label>
                   <input className="custom-box" type='checkbox' name='membersOwing' checked={this.state.checked} onChange={this.handleCheck}></input>
                   {!this.state.checked &&
@@ -189,7 +190,7 @@ class AddTransaction extends React.Component {
                   <input type='checkbox' name='amountMembersOwing' defaultChecked></input>
                 </div> */}
                 <div>
-                {this.state.errorPeopleAmount == true && <p style={{ color: "red" }}>Please select more than one member</p>}
+                  {this.state.errorPeopleAmount == true && <p style={{ color: "red" }}>Please select more than one member</p>}
                   <button className="btn addTransactionButton custom-button btn-lg" type="submit" onClick={this.submit}>
                     Add Transaction
               </button>

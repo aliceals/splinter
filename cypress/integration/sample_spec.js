@@ -78,8 +78,8 @@ it('A user can create a new group', function () {
     logUserIn()
 
     cy.get('.groupname')
-        .type('fake225@email.com')
-        .should('have.value', 'fake225@email.com')
+        .type('test group')
+        .should('have.value', 'test group')
 
     cy.get('.groupdescription')
         .type('banana')
@@ -100,4 +100,26 @@ it('A user can create a new group', function () {
     cy.contains('Create Group').click()
 
     cy.contains('Add New Transaction')
+})
+
+it('A user can create a transaction from already created group', function () {
+    logUserIn()
+
+    cy.contains('test group').click()
+
+    cy.contains('Add New Transaction').click()
+
+    cy.get('.paymentDesc')
+        .type('test one')
+        .should('have.value', 'test one')
+
+    cy.get('.payedby')
+        .type('banana')
+        .should('have.value', 'banana')
+
+    cy.get('.amount')
+        .type('200')
+        .should('have.value', '200')
+
+
 })
