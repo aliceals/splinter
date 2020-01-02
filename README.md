@@ -39,4 +39,7 @@ When it comes to settle group debt, the account user gets an email outlining the
 - Once the group has been settled an email gets sent to the user with the suggested payment plan 
 - Robust user friendly and mobile friendly app
 
+## To do
+- Testing
+
 
