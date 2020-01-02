@@ -35,10 +35,6 @@ it('A user can register', function () {
         return text;
     }
 
-    // cy.get('.email')
-    //     .type('fake225@email.com')
-    //     .should('have.value', 'fake225@email.com')
-
     cy.get('.password1')
         .type('banana')
         .should('have.value', 'banana')
@@ -118,8 +114,12 @@ it('A user can create a transaction from already created group', function () {
         .should('have.value', '42')
 
     cy.get('.amount')
-        .type('200')
-        .should('have.value', '200')
+        .type('20.00')
+        .should('have.value', '20.00')
 
     cy.contains('Add Transaction').click()
+
+    cy.contains('View All Transactions').click()
+
+    cy.contains('test one')
 })
