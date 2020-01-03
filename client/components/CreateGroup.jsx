@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { createNewGroupThunk } from '../actions/groups'
 
-class CreateGroup extends React.Component {
+export class CreateGroup extends React.Component {
   constructor(props) {
     super(props)
     this.state = {

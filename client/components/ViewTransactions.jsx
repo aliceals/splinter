@@ -84,7 +84,7 @@ class ViewTransactions extends React.Component {
                         <td className='hiddenOnMobile'>{dateString}</td>
                         <td>${transaction.transaction_total / 100}</td>
                         <td>{name}</td>
-                        {selectedGroup.settled == 0 && <td><button onClick={this.handleDelete} id={transaction.transaction_id} className='btn btn-outline-danger'>Delete</button></td>}
+                        {selectedGroup.settled == 0 && <td><button onClick={this.handleDelete} id={transaction.transaction_id} className='btn btn-outline-danger delete'>Delete!</button></td>}
                       </tr>
                       {this.state.openTransactions.includes(transaction.transaction_name) &&
                         <TransactionDetails name={transaction.transaction_name} />

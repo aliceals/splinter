@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { newTransaction, deleteTransactions } from '../actions/transactions'
 
-class AddTransaction extends React.Component {
+export class AddTransaction extends React.Component {
   constructor(props) {
     super(props)
     this.state = {

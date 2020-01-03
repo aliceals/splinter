@@ -70,7 +70,7 @@ function logUserIn() {
     cy.contains('Create a new group')
 }
 
-it('A user can create a new group', function () {
+it('A user can create a new group and delete a new group', function () {
     logUserIn()
 
     cy.get('.groupname')
@@ -96,6 +96,10 @@ it('A user can create a new group', function () {
     cy.contains('Create Group').click()
 
     cy.contains('Add New Transaction')
+
+    cy.contains('Delete').click()
+
+
 })
 
 it('A user can create a transaction from already created group', function () {
@@ -122,4 +126,19 @@ it('A user can create a transaction from already created group', function () {
     cy.contains('View All Transactions').click()
 
     cy.contains('test one')
+})
+
+
+it('A user can delete a transaction and it adds up to the right amount', function () {
+    logUserIn()
+
+    cy.contains('test group').click()
+
+    cy.contains('View All Transactions').click()
+
+    cy.contains('Delete!').click()
+
+    cy.contains('Yes, delete it!').click()
+
+    cy.contains('Total spend is $420')
 })
